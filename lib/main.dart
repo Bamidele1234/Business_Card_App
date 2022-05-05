@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
+// Using Row and Column
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -12,12 +11,51 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.red,
-        appBar: AppBar(
-          title: const Center(
-            child: Text('Business Card App'),
+        body: SafeArea(
+          child: Row(
+            //mainAxisSize: MainAxisSize.min,
+            //verticalDirection: VerticalDirection.up,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            /**
+             * The column is made of a list of children widgets
+             */
+            children: <Widget>[
+              Container(
+                height: 100,
+                color: Colors.yellowAccent,
+                child: const Text('Container 1'),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              Container(
+                height: 100,
+                color: Colors.blue,
+                child: const Text('Container 2'),
+              ),
+              Container(
+                height: 100,
+                color: Colors.green,
+                child: const Text('Container 3'),
+              ),
+            ],
           ),
-          backgroundColor: Colors.lightGreenAccent,
         ),
+      ),
+    );
+  }
+}
+
+// Using containers
+class SomeApp extends StatelessWidget {
+  const SomeApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white24,
         body: SafeArea(
           child: Container(
             /**
